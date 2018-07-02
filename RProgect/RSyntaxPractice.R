@@ -26,7 +26,7 @@ c
 a<-c(1,2,3)
 a
 
-#함수c : concat의 약자,vector만들때 사용, 데이터 타입은 동일해야함
+#함수c : combine의 약자,vector만들때 사용, 데이터 타입은 동일해야함
 # 데이터 타입을 다르게 쓴 경우 가장 큰 타입으로 자동 변환되어 배열을 생성한다.
 #함수 sum : 합계 
 #함수 mean : 
@@ -68,7 +68,7 @@ r<-switch(
   '1' ="패배",
   '-1'="승리",
   '2' ="승리",
-  '-2'="패배",
+  '-2'="패배"
     )
 print(r)
 
@@ -80,13 +80,13 @@ print(switch(
   '1' ="패배",
   '-1'="승리",
   '2' ="승리",
-  '-2'="패배",
+  '-2'="패배"
 ))
 
 #switch문 사용해서 BMI계산하기 
 weg<-60
 hei<-185
-bmi  weg/(hei*hei/10000)
+bmi<-weg/(hei*hei/10000)
 if(bmi<18.5)print("저체중")else 
   if(bmi>=18.5&&bmi<23)print("정상")else 
     if(bmi>=23&&bmi<25)print("비만 전단계")else
@@ -144,7 +144,61 @@ cat(num1,op,num2,'=',switch(
   op,
   '+'=toString(num1+num2),
   '-'=toString(num1-num2),
+  '*'=toString(num1*num2),
   '/'=toString(num1%/%num2),
   '%'=toString(num1%%num2)
 ))
+
+
+#1+2+3+4+5=15
+for(i in 1:5){
+  if(i<5)
+    cat(i,'+ ')
+  else
+    cat(i,'=',sum(1:5))
+}
+
+#1-2+3-4+5-6+7- ....100=-50
+for(i in 1:100){
+  if(i==100)
+    cat(i,'=',sum(seq(from=1,to=100,by=2))-sum(seq(from=0,to=100,by=2)))
+  else if(i%%2==1)
+    cat(i,'- ')
+  else 
+    cat(i,'+ ')
+}
+
+#다른 버전
+for(i in 1:100){
+  if(i==100)
+    cat(i,'=',sum(seq(from=1,to=100,by=2))-sum(seq(from=0,to=100,by=2)))
+  else if(i%%2==1)
+    cat(i,'- ')
+  else 
+    cat(i,'+ ')
+}
+
+#Grade 문제
+name<-'홍길동'
+kor<-50
+eng<-75
+math<-60
+res<-c(kor,eng,math)
+cat('이름 :',name,'합계 :',sum(res),' 평균 :',mean(res),' 등급 :',switch(
+  toString(mean(res)%/%10),
+  '10' = 'A',
+  '9' = 'A',
+  '8' = 'B',
+  '7' = 'C',
+  '6' = 'D',
+  '5' = 'E',
+  '4' = 'F',
+  '3' = 'F',
+  '2' = 'F',
+  '1' = 'F'
+))
+
+
+
+
 

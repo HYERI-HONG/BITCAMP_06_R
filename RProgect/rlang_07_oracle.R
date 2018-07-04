@@ -13,7 +13,7 @@ conn <- dbConnect(drv,
                   "HRHONG",
                   "HRHONG")
 
-rst <- dbGetQuery(conn, "SELECT count(*) FROM STADIUM")
+rst <- dbGetQuery(conn, "SELECT * FROM STADIUM")
 rst
 
-dbGetQuery(conn, "SELECT count(*) FROM PLAYER")
+

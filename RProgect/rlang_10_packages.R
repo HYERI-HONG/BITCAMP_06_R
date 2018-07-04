@@ -1,3 +1,5 @@
+##ggplot
+
 install.packages("ggplot2")
 library(ggplot2)
 read.csv(file = "C:\\Users\\1027\\Downloads\\RWorkspace\\2013년_전년대비_시간대별_교통사고_사망자_현황.csv")
@@ -95,7 +97,7 @@ hist(midwest$percent)
 # 'large' , 그 외에는 'small' 을 부여하는 파생변수를 만드시오.
 mean(midwest$percent)
 midwest$scale <-ifelse(
-  midwest$percent >0.4872462, "large","small")
+  midwest$percent > mean(midwest$percent), "large","small")
 
 head(midwest)
 # 'large' 와 'small' 에 해당하는 지역이 얼마나 되는지 
@@ -103,6 +105,7 @@ head(midwest)
 table(midwest$scale)
 qplot(midwest$scale)
 
+write.csv(midwest,file="update_midwest.csv")
 
 # manufacturer
 # model
